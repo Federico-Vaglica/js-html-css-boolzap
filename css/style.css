@@ -9,6 +9,10 @@
     display: table;
     clear: both;
 }
+
+.fleft {
+    float: left;
+}
 /****************************Formattazione background***************************/
 .bcg-container {
     width: 100vw;
@@ -51,16 +55,49 @@
     background-color: lightgreen;
 }
 
+.avatar img {
+    height: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-radius: 50%;
+    float: left;
+}
+
+.avatar ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.avatar ul li {
+    display: inline;
+    font-size: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
 .notifiche{
     width: 100%;
     min-height: 80px;
     background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.notifiche div {
+    padding-left: 12px;
+}
+.icon i{
+    font-size: 45px;
 }
 
 .barra-ricerca {
     width: 100%;
     min-height: 40px;
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
 
 #cerca {
@@ -72,10 +109,22 @@
 
 
 .conversazioni {
-    width: 100%;   
-
+    width: 100%; 
+    height: calc(90vh - 190px);  
+    overflow: auto;
 }
 
+.chat {
+    width: 100%;
+    height: 70px;
+    background-color: yellowgreen;
+}
+
+.chat1 {
+    width: 100%;
+    height: 70px;
+    background-color:lightsalmon;
+}
 
 /****************************Formattazione section right chat***************************/
 
@@ -84,4 +133,19 @@
     height: 100%;
     background-color: dodgerblue;
     float: left;
+    position: relative;
+}
+
+.main-chat {
+    width: 100%;
+    height: calc(90vh - 140px);
+    background-color: lightpink;
+}
+
+.bottom-bar{
+    width: 100%;
+    min-height: 70px;
+    position: absolute;
+    bottom: 0;
+    background-color: lightgreen
 }
