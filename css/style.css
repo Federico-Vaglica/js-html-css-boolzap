@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+/****************************Formattazione background***************************/
+.bcg-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #d5dbd8;
+}
+
+.green{
+    width: 100vw;
+    height: 20vh;
+    background-color: #00bfa5;
+    position: relative;
+
+}
+
+/****************************Formattazione Main***************************/
+
+.main  {
+    width: 80vw;
+    height: 90vh;
+    background-color: darkolivegreen;
+    position: absolute;
+    right: 10vw;
+    top:5vh;    
+}
+
+/****************************Formattazione Aside left***************************/
+
+.left {
+    width:30%;
+    height: 100%;
+    background-color: darkseagreen;
+    float: left;
+}
+
+
+.avatar{
+    width: 100%;
+    min-height: 70px;
+    background-color: lightgreen;
+}
+
+.notifiche{
+    width: 100%;
+    min-height: 80px;
+    background-color: lightblue;
+}
+
+.barra-ricerca {
+    width: 100%;
+    min-height: 40px;
+    background-color: white;
+}
+
+#cerca {
+    width: 98%;
+    /* margin-left: 1%;
+    margin-top: 1%; */
+    line-height: 38px;
+}
+
+
+.conversazioni {
+    width: 100%;   
+
+}
+
+
+/****************************Formattazione section right chat***************************/
+
+.chat-right {
+    width: 70%;
+    height: 100%;
+    background-color: dodgerblue;
+    float: left;
+}
