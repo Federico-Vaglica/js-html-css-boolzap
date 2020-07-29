@@ -13,6 +13,10 @@
 .fleft {
     float: left;
 }
+
+.fright{
+    float:right;
+}
 /****************************Formattazione background***************************/
 .bcg-container {
     width: 100vw;
@@ -118,14 +122,23 @@
     width: 100%;
     height: 70px;
     background-color: yellowgreen;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.chat1 {
-    width: 100%;
-    height: 70px;
-    background-color:lightsalmon;
+.chat img {
+        height: 60px;
+        /* margin-left: 5px;
+        margin-top: 5px; */
+        border-radius: 50%;
+        float: left;
 }
 
+.time {
+    display: flex;
+    align-items: flex-end;
+}
 /****************************Formattazione section right chat***************************/
 
 .chat-right {
@@ -147,5 +160,39 @@
     min-height: 70px;
     position: absolute;
     bottom: 0;
-    background-color: lightgreen
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.input-chat{
+    width: 80%;
+}
+
+.input-chat input {
+    width: 100%;
+    padding: 17px 3px;
+    border-radius: 4px;;
+}
+
+.emoji  {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.send {
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+.current-chat {
+    padding-left: 10px;
+}
+
+.current-chat h4 {
+    padding-top: 10px;
+    padding-bottom: 5px;;
 }
