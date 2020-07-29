@@ -216,15 +216,14 @@
 .chat-right {
     width: 70%;
     height: 100%;
+    background-color: dodgerblue;
     float: left;
     position: relative;
-    overflow: auto;
 }
 
 .main-chat {
     width: 100%;
     height: calc(90vh - 140px);
-    overflow: auto;
     background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexternal-preview.redd.it%2FrEwFriCkfAtjOb5b-23b4tGGVcuvfaBqamYNJrgxnLM.png%3Fwidth%3D700%26auto%3Dwebp%26s%3Db9cb52f0a75c14a2a4f0dda83382a525aea36b27&f=1&nofb=1');
 }
 
@@ -283,6 +282,7 @@
 
 
 .container-msg {
+    width: 100%;
     padding-top: 15px;
 }
 
@@ -290,8 +290,6 @@
     min-width: 30%;
     padding: 15px 10px ;
     border-radius: 15px;
-    display: block;
-
 }
 
 .ricevuto {
@@ -302,10 +300,6 @@
     background-color: greenyellow;
 }
 
-.template { 
-    display: none;
-}
-
-.template1 {
+.tamplate {
     display: none;
 }
