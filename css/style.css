@@ -272,5 +272,34 @@
 }
 
 
-/*****************DA AGGIUSTARE*******************************/
+/*****************Conversazione chat*******************************/
 
+.container-chat {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+.container-msg {
+    width: 100%;
+    padding-top: 15px;
+}
+
+.messaggio {
+    min-width: 30%;
+    padding: 15px 10px ;
+    border-radius: 15px;
+}
+
+.ricevuto {
+    background-color: lightgray;
+}
+
+.inviato {
+    background-color: greenyellow;
+}
+
+.tamplate {
+    display: none;
+}
