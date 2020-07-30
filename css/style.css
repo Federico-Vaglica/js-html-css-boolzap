@@ -300,6 +300,10 @@
     background-color: greenyellow;
 }
 
-.tamplate {
+.template {
+    display: none;
+}
+
+.template1 {
     display: none;
 }
