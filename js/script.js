@@ -91,19 +91,24 @@ $(document).on('click' ,'.chat', function(){
 
 
   // filtro contatti
-    $('#search-chat').keyup(
+
+
+      $('#search-chat').keyup(
         function () {
     
+        
         var stringaFiltro = $(this).val().toLowerCase();
-        var nomiContatti = $('.chat').find('.contact-name').text().toLowerCase();;
-        ricerca(nomiContatti);
-          function ricerca () {
-   
-            if(nomiContatti.includes(stringaFiltro)){
+    
+        
+        $('.chat').each(
+          function () {
+          var stringaNome = $(this).find('.contact-name').text().toLowerCase();
+    
+            if(stringaNome.includes(stringaFiltro)){
               $(this).show();
             } else {
               $(this).hide();
             }
     
-        };
+        });
       });
