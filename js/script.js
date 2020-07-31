@@ -19,6 +19,10 @@ $(document).ready(function(){
             var clone = $('.template .container-msg').clone();
             clone.find('.messaggio').addClass('fleft ricevuto');
             clone.find('.clone-msg').text('OK');
+            
+            var time= data();
+            clone.find('.message-time').append(time);
+
             $('.right-conversation.active').append(clone);
     }
     })
@@ -30,9 +34,30 @@ $(document).ready(function(){
                 clone.find('.messaggio').addClass('fright inviato');
                 clone.find('.clone-msg').text(valoreInput);
                 console.log(clone.children('.clone-msg'));
+
+                var time= data();
+                clone.find('.message-time').append(time);
+
+
+                $('.right-conversation.active').append(clone);
                 
-                $('.right-conversation.active').append(clone);    
-    }
+                   
+    }           
 });
 
 
+
+    function data() {
+        var d = new Date();
+        var ora = addZero(d.getHours());
+        var m = addZero(d.getMinutes());
+        return ora+ ':'+m
+    }
+
+
+    function addZero(numero){
+        if(numero < 10){
+            return '0'+ numero;
+        } 
+        return numero;
+    }
