@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#myMsg').keypress(function(){
-        if(event.which == 13) {
+        if(event.which == 13 || event.keyCode == 13) {
             invioMessaggio();
 
             setTimeout(myFunction, 3000);
