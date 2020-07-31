@@ -3,23 +3,35 @@ $(document).ready(function(){
         if(event.which == 13 || event.keyCode == 13) {
             invioMessaggio();
 
-            setTimeout(myFunction, 3000);
-                function myFunction() {
-                    var clone = $('.template1 .container-msg').clone();
-                    
-                    $('.container-chat').append(clone);
-            }
+            setTimeout(sendRisposta, 1000);
+           
         }
     })
     $('#send1').on('click',function(){
         invioMessaggio();
 
-        setTimeout(sendRisposta, 1000);
-
-
-
-        
+        setTimeout(sendRisposta, 1000);      
     })
+});
+
+
+$(document).on('click','.chat', function() {
+    var name = $(this).find('.contact-name').text();
+    var img = $(this).find('.getImg').attr('src');
+     
+    $('.avatar').find('.contactTochange').text(name);
+    $('.avatar').find('.imgChanged').attr('src',img);
+    $('.avatar').find('span').text(randomHours());
+
+});
+
+$(document).on('click' ,'.chat', function(){
+    var currentChat = $(this).index();                  
+    var activeChat = $('.right-conversation').eq(currentChat);
+    
+    
+    $('.right-conversation.active').removeClass('active');      
+    $(activeChat).addClass('active');                               
 });
 
         /****************************FUNZIONI ********************************/
@@ -55,7 +67,7 @@ $(document).ready(function(){
     function sendRisposta() {
         var clone = $('.template .container-msg').clone();
         clone.find('.messaggio').addClass('fleft ricevuto');
-        clone.find('.clone-msg').text('OK');
+        clone.find('.clone-msg').text(randomAnswer());
 
         var time= data();
         clone.find('.message-time').append(time);
@@ -64,23 +76,34 @@ $(document).ready(function(){
 }
 
 
-
-
-$(document).on('click','.chat', function() {
-    var name = $(this).find('.contact-name').text();
-    var img = $(this).find('.getImg').attr('src');
-     
-    $('.avatar').find('.contactTochange').text(name);
-    $('.avatar').find('.imgChanged').attr('src',img);
-    $('.avatar').find('span').text(randomHours());
-
-})
-
-
  function randomHours() {
      var hours =['12:43','11:20','6:50','5:30'];
      var randomHours = hours[Math.floor(Math.random() * hours.length)];
-     return randomHours;
-    
+     return randomHours;    
  }
 
+ function randomAnswer() {
+    var answers =['Ok','Ci vediamo dopo!','Buongiorn','Piacere mio'];
+    var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+    return randomAnswer;    
+}
+
+
+
+  // filtro contatti
+    $('#search-chat').keyup(
+        function () {
+    
+        var stringaFiltro = $(this).val().toLowerCase();
+        var nomiContatti = $('.chat').find('.contact-name').text().toLowerCase();;
+        ricerca(nomiContatti);
+          function ricerca () {
+   
+            if(nomiContatti.includes(stringaFiltro)){
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+    
+        };
+      });
