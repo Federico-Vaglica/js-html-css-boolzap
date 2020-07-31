@@ -14,39 +14,29 @@ $(document).ready(function(){
     $('#send1').on('click',function(){
         invioMessaggio();
 
-        setTimeout(myFunction, 3000);
-        function myFunction() {
-            var clone = $('.template .container-msg').clone();
-            clone.find('.messaggio').addClass('fleft ricevuto');
-            clone.find('.clone-msg').text('OK');
-            
-            var time= data();
-            clone.find('.message-time').append(time);
+        setTimeout(sendRisposta, 1000);
 
-            $('.right-conversation.active').append(clone);
-    }
+
+
+        
     })
-
-    /*FUNZIONI */
-    function invioMessaggio() {
-        var valoreInput = $('#myMsg').val();
-                var clone = $('.template .container-msg').clone();
-                clone.find('.messaggio').addClass('fright inviato');
-                clone.find('.clone-msg').text(valoreInput);
-                console.log(clone.children('.clone-msg'));
-
-                var time= data();
-                clone.find('.message-time').append(time);
-
-
-                $('.right-conversation.active').append(clone);
-                
-                   
-    }           
 });
 
-
-
+        /****************************FUNZIONI ********************************/
+    function invioMessaggio() {
+        var valoreInput = $('#myMsg').val();
+            var clone = $('.template .container-msg').clone();
+            clone.find('.messaggio').addClass('fright inviato');
+            clone.find('.clone-msg').text(valoreInput);
+            console.log(clone.children('.clone-msg'));
+    
+            var time= data();
+            clone.find('.message-time').append(time);
+    
+    
+            $('.right-conversation.active').append(clone);                   
+        }           
+/**************************************/
     function data() {
         var d = new Date();
         var ora = addZero(d.getHours());
@@ -61,3 +51,36 @@ $(document).ready(function(){
         } 
         return numero;
     }
+/**************************************/
+    function sendRisposta() {
+        var clone = $('.template .container-msg').clone();
+        clone.find('.messaggio').addClass('fleft ricevuto');
+        clone.find('.clone-msg').text('OK');
+
+        var time= data();
+        clone.find('.message-time').append(time);
+
+        $('.right-conversation.active').append(clone);
+}
+
+
+
+
+$(document).on('click','.chat', function() {
+    var name = $(this).find('.contact-name').text();
+    var img = $(this).find('.getImg').attr('src');
+     
+    $('.avatar').find('.contactTochange').text(name);
+    $('.avatar').find('.imgChanged').attr('src',img);
+    $('.avatar').find('span').text(randomHours());
+
+})
+
+
+ function randomHours() {
+     var hours =['12:43','11:20','6:50','5:30'];
+     var randomHours = hours[Math.floor(Math.random() * hours.length)];
+     return randomHours;
+    
+ }
+
