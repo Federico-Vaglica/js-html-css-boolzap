@@ -4,14 +4,16 @@ $(document).ready(function(){
             invioMessaggio();
 
             setTimeout(sendRisposta, 1000);
-           
+            $('#myMsg').val('');
         }
     })
     $('#send1').on('click',function(){
         invioMessaggio();
 
-        setTimeout(sendRisposta, 1000);      
+        setTimeout(sendRisposta, 1000); 
+        $('#myMsg').val('');     
     })
+
 });
 
 
@@ -34,13 +36,35 @@ $(document).on('click' ,'.chat', function(){
     $(activeChat).addClass('active');                               
 });
 
+
+  // filtro contatti
+
+  $('#search-chat').keyup(
+    function () {
+
+    
+    var stringaFiltro = $(this).val().toLowerCase();
+
+    
+    $('.chat').each(
+      function () {
+      var stringaNome = $(this).find('.contact-name').text().toLowerCase();
+
+        if(stringaNome.includes(stringaFiltro)){
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+
+    });
+  });
+  
         /****************************FUNZIONI ********************************/
     function invioMessaggio() {
         var valoreInput = $('#myMsg').val();
             var clone = $('.template .container-msg').clone();
             clone.find('.messaggio').addClass('fright inviato');
             clone.find('.clone-msg').text(valoreInput);
-            console.log(clone.children('.clone-msg'));
     
             var time= data();
             clone.find('.message-time').append(time);
@@ -90,25 +114,3 @@ $(document).on('click' ,'.chat', function(){
 
 
 
-  // filtro contatti
-
-
-      $('#search-chat').keyup(
-        function () {
-    
-        
-        var stringaFiltro = $(this).val().toLowerCase();
-    
-        
-        $('.chat').each(
-          function () {
-          var stringaNome = $(this).find('.contact-name').text().toLowerCase();
-    
-            if(stringaNome.includes(stringaFiltro)){
-              $(this).show();
-            } else {
-              $(this).hide();
-            }
-    
-        });
-      });
